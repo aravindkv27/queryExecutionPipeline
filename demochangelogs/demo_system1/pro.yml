@@ -1,0 +1,1252 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'dev-EC2-main'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:      - targets: ['172.31.10.66:9100']
+  - job_name: 'project_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9001']
+  - job_name: 'project_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3002']
+  - job_name: 'acl_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9000']
+  - job_name: 'acl_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3001']
+  - job_name: 'ams_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9007']
+  - job_name: 'ams_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3017']
+  - job_name: 'appbuilder_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9014']
+  - job_name: 'appbuilder_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3020']
+  - job_name: 'appraisal_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9006']
+  - job_name: 'appraisal_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3016']
+  - job_name: 'auth-service_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9018']
+  - job_name: 'auth-service_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3800']
+  - job_name: 'awards_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9008']
+  - job_name: 'awards_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3018']
+  - job_name: 'compliance_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9020']
+  - job_name: 'compliance_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3026']
+  - job_name: 'cs-service_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9021']
+  - job_name: 'cs-service_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3050']
+  - job_name: 'email-service_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9016']
+  - job_name: 'email-service_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3500']
+  - job_name: 'employee360_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9023']
+  - job_name: 'employee360_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3028']
+  - job_name: 'exit_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9031']
+  - job_name: 'exit_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3031']
+  - job_name: 'expenses_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9005']
+  - job_name: 'expenses_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3014']
+  - job_name: 'integrationsnode_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9011']
+  - job_name: 'integrationsnode_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3022']
+  - job_name: 'isa_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9010']
+  - job_name: 'isa_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3021']
+  - job_name: 'leaveapp_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9025']
+  - job_name: 'leaveapp_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3751']
+  - job_name: 'lms_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9013']
+  - job_name: 'lms_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3023']
+  - job_name: 'misfunctions_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9026']
+  - job_name: 'misfunctions_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3039']
+  - job_name: 'mismgmtapis_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9003']
+  - job_name: 'mismgmtapis_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3034']
+  - job_name: 'okr_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9012']
+  - job_name: 'okr_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3019']
+  - job_name: 'payrollapp_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9030']
+  - job_name: 'payrollapp_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3752']
+  - job_name: 'p2p_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9022']
+  - job_name: 'p2p_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3750']
+  - job_name: 'qbnode_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9032']
+  - job_name: 'qbnode_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3033']
+  - job_name: 'rabbitmq-service_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9015']
+  - job_name: 'rabbitmq-service_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3900']
+  - job_name: 'resource-management_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9027']
+  - job_name: 'resource-management_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3030']
+  - job_name: 'salesnode_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9009']
+  - job_name: 'salesnode_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3011']
+  - job_name: 'scheduler-service_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9017']
+  - job_name: 'scheduler-service_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3803']
+  - job_name: 'tenant-service_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9019']
+  - job_name: 'tenant-service_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3801']
+  - job_name: 'timesheet_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9004']
+  - job_name: 'timesheet_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3013']
+  - job_name: 'utility_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9024']
+  - job_name: 'utility_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3010']
+  - job_name: 'workflow_pm2 metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.10.66:9002']
+  - job_name: 'workflow_default metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.10.66:3012']
+# Quality Jobs
+  - job_name: 'qual-EC2-main'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:9100']
+  - job_name: 'project_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8001']
+  - job_name: 'project_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3002']
+  - job_name: 'acl_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8000']
+  - job_name: 'acl_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3001']
+  - job_name: 'workflow_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8002']
+  - job_name: 'workflow_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3012']
+  - job_name: 'timesheet_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8003']
+  - job_name: 'timesheet_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3013']
+  - job_name: 'expenses_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8004']
+  - job_name: 'expenses_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3014']
+  - job_name: 'appraisal_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8005']
+  - job_name: 'appraisal_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3016']
+  - job_name: 'ams_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8006']
+  - job_name: 'ams_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3017']
+  - job_name: 'awards_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8007']
+  - job_name: 'awards_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3018']
+  - job_name: 'salesnode_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8008']
+  - job_name: 'salesnode_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3011']
+  - job_name: 'isa_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8009']
+  - job_name: 'isa_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3021']
+  - job_name: 'integrationsnode_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8010']
+  - job_name: 'integrationsnode_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3022']
+  - job_name: 'okr_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8011']
+  - job_name: 'okr_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3019']
+  - job_name: 'lms_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8012']
+  - job_name: 'lms_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3023']
+  - job_name: 'appbuilder_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8013']
+  - job_name: 'appbuilder_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3020']
+  - job_name: 'rabbitmq-service_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8014']
+  - job_name: 'rabbitmq-service_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3900']
+  - job_name: 'email-service_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8015']
+  - job_name: 'email-service_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3500']
+  - job_name: 'scheduler-service_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8016']
+  - job_name: 'scheduler-service_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3803']
+  - job_name: 'auth-service_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8017']
+  - job_name: 'auth-service_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3800']
+  - job_name: 'tenant-service_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8018']
+  - job_name: 'tenant-service_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3801']
+  - job_name: 'compliance_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8019']
+  - job_name: 'compliance_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3026']
+  - job_name: 'cs-service_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8020']
+  - job_name: 'cs-service_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3050']
+  - job_name: 'p2p_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8021']
+  - job_name: 'p2p_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3750']
+  - job_name: 'employee360_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8022']
+  - job_name: 'employee360_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3028']
+  - job_name: 'utility_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8023']
+  - job_name: 'utility_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3010']
+  - job_name: 'leaveapp_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8024']
+  - job_name: 'leaveapp_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3751']
+  - job_name: 'misfunctions_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8025']
+  - job_name: 'misfunctions_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3039']
+  - job_name: 'gdadmin_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8025']
+  - job_name: 'resource-management_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8027']
+  - job_name: 'resource-management_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3030']
+  - job_name: 'exit_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8028']
+  - job_name: 'exit_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3031']
+  - job_name: 'project-management_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8029']
+  - job_name: 'project-management_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3061']
+  - job_name: 'mismgmtapis_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8030']
+  - job_name: 'mismgmtapis_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3034']
+  - job_name: 'qbnode_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8031']
+  - job_name: 'qbnode_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3033']
+  - job_name: 'analytics_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.17.126:8032']
+  - job_name: 'analytics_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.17.126:3802']
+# Production Jobs
+  - job_name: 'prd-EC2-main'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:9100']
+  - job_name: 'project_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9052']
+  - job_name: 'project_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3002']
+  - job_name: 'acl_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9051']
+  - job_name: 'acl_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3001']
+  - job_name: 'workflow_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9053']
+  - job_name: 'workflow_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3012']
+  - job_name: 'timesheet_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9054']
+  - job_name: 'timesheet_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3013']
+  - job_name: 'expenses_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9055']
+  - job_name: 'expenses_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3014']
+  - job_name: 'appraisal_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9056']
+  - job_name: 'appraisal_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3016']
+  - job_name: 'ams_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9057']
+  - job_name: 'ams_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3017']
+  - job_name: 'awards_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9058']
+  - job_name: 'awards_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3018']
+  - job_name: 'salesnode_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9059']
+  - job_name: 'salesnode_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3011']
+  - job_name: 'isa_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9060']
+  - job_name: 'isa_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3021']
+  - job_name: 'integrationsnode_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9061']
+  - job_name: 'integrationsnode_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3022']
+  - job_name: 'okr_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9062']
+  - job_name: 'okr_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3019']
+  - job_name: 'lms_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9063']
+  - job_name: 'lms_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3023']
+  - job_name: 'appbuilder_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9064']
+  - job_name: 'appbuilder_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3020']
+  - job_name: 'rabbitmq-service_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9065']
+  - job_name: 'rabbitmq-service_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3900']
+  - job_name: 'email-service_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9066']
+  - job_name: 'email-service_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3500']
+  - job_name: 'scheduler-service_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9067']
+  - job_name: 'scheduler-service_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3803']
+  - job_name: 'auth-service_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9068']
+  - job_name: 'auth-service_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3800']
+  - job_name: 'tenant-service_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9069']
+  - job_name: 'tenant-service_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3801']
+  - job_name: 'compliance_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9070']
+  - job_name: 'compliance_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3026']
+  - job_name: 'cs-service_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9071']
+  - job_name: 'cs-service_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3050']
+  - job_name: 'p2p_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9072']
+  - job_name: 'p2p_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3750']
+  - job_name: 'employee360_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9073']
+  - job_name: 'employee360_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3028']
+  - job_name: 'utility_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9074']
+  - job_name: 'utility_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3010']
+  - job_name: 'leaveapp_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9075']
+  - job_name: 'leaveapp_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3751']
+  - job_name: 'misfunctions_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9076']
+  - job_name: 'misfunctions_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3039']
+  - job_name: 'resource-management_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9077']
+  - job_name: 'resource-management_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3030']
+  - job_name: 'exit_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9080']
+  - job_name: 'exit_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3031']
+  - job_name: 'mismgmtapis_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9079']
+  - job_name: 'mismgmtapis_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3034']
+  - job_name: 'analytics_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.82.101:9081']
+  - job_name: 'analytics_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.82.101:3802']
+# BGJ Qual
+  - job_name: 'qual-EC2-bg'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.85.187:9100']
+  - job_name: 'bgj_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.85.187:8051']
+  - job_name: 'bgj_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.85.187:3025']
+  - job_name: 'lcdpbgj_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.85.187:8052']
+  - job_name: 'lcdpbgj_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.85.187:3030']
+  - job_name: 'rrbgj_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.85.187:8053']
+  - job_name: 'rrbgj_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.85.187:3040']
+  - job_name: 'hubspotbgj_pm2_qual metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.85.187:8054']
+  - job_name: 'hubspotbgj_default_qual metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.85.187:3042']
+# Production BGJ
+  - job_name: 'prd-EC2-bgj'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.13.229:9100']
+  - job_name: 'BgjNode_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.13.229:9086']
+  - job_name: 'BgjNode_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.13.229:3025']
+  - job_name: 'lcdpbgjprd_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.13.229:9087']
+  - job_name: 'lcdpbgjprd_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.13.229:3030']
+  - job_name: 'rrbgjprd_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.13.229:9088']
+  - job_name: 'rrbgjprd_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.13.229:3040']
+  - job_name: 'hubspotbgjprd_pm2_prd metrics'
+    scrape_interval: 10s
+    scrape_timeout: 10s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets: ['172.31.13.229:9089']
+  - job_name: 'hubspotbgjprd_default_prd metrics'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['172.31.13.229:3042']

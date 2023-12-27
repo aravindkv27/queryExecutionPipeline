@@ -1,0 +1,34 @@
+(
+[
+    {'line_no': 1, 'line_pos': 62, 'code': 'LT01', 'description': 'Unnecessary trailing whitespace.', 'name': 'layout.spacing'}, 
+    {'line_no': 2, 'line_pos': 63, 'code': 'LT01', 'description': 'Unnecessary trailing whitespace.', 'name': 'layout.spacing'}, 
+    {'line_no': 3, 'line_pos': 1, 'code': 'AM04', 'description': 'Query produces an unknown number of result columns.', 'name': 'ambiguous.column_count'}, 
+    {'line_no': 3, 'line_pos': 1, 'code': 'LT05', 'description': 'Line is too long (101 > 80).', 'name': 'layout.long_lines'}, 
+    {'line_no': 3, 'line_pos': 63, 'code': 'RF05', 'description': 'Do not use special characters in identifiers.', 'name': 'references.special_chars'}, 
+    {'line_no': 3, 'line_pos': 101, 'code': 'LT12', 'description': 'Files must end with a single trailing newline.', 'name': 'layout.end_of_file'}
+],
+ 'Inserted Successfully'
+)
+
+(
+    [
+        {'line_no': 1, 'line_pos': 62, 'code': 'LT01', 'description': 'Unnecessary trailing whitespace.', 'name': 'layout.spacing'}, 
+        {'line_no': 2, 'line_pos': 63, 'code': 'LT01', 'description': 'Unnecessary trailing whitespace.', 'name': 'layout.spacing'}, 
+        {'line_no': 3, 'line_pos': 1, 'code': 'AM04', 'description': 'Query produces an unknown number of result columns.', 'name': 'ambiguous.column_count'}, 
+        {'line_no': 3, 'line_pos': 1, 'code': 'LT05', 'description': 'Line is too long (101 > 80).', 'name': 'layout.long_lines'}, 
+        {'line_no': 3, 'line_pos': 63, 'code': 'RF05', 'description': 'Do not use special characters in identifiers.', 'name': 'references.special_chars'}, 
+        {'line_no': 3, 'line_pos': 101, 'code': 'LT12', 'description': 'Files must end with a single trailing newline.', 'name': 'layout.end_of_file'}
+    ], 
+'Inserted Successfully'
+)
+
+(
+    [
+        {'line_no': 1, 'line_pos': 56, 'code': 'LT01', 'description': 'Unnecessary trailing whitespace.', 'name': 'layout.spacing'}, 
+        {'line_no': 2, 'line_pos': 63, 'code': 'LT01', 'description': 'Unnecessary trailing whitespace.', 'name': 'layout.spacing'}, 
+        {'line_no': 3, 'line_pos': 1, 'code': 'AM04', 'description': 'Query produces an unknown number of result columns.', 'name': 'ambiguous.column_count'}, 
+        {'line_no': 3, 'line_pos': 1, 'code': 'LT05', 'description': 'Line is too long (101 > 80).', 'name': 'layout.long_lines'}, 
+        {'line_no': 3, 'line_pos': 63, 'code': 'RF05', 'description': 'Do not use special characters in identifiers.', 'name': 'references.special_chars'}, 
+        {'line_no': 3, 'line_pos': 101, 'code': 'LT12', 'description': 'Files must end with a single trailing newline.', 'name': 'layout.end_of_file'}
+    ], 
+'Inserted Successfully')

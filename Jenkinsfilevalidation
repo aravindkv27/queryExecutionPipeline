@@ -1,0 +1,60 @@
+def database_names = [
+  'demo1',
+  'demo_system1',
+  'demo_system2'
+]
+def S3_BUCKET = 'kebs-queryexecution'
+def FOLDER_TO_FETCH = 'demochangelogs'
+
+pipeline {
+    agent any
+
+    environment {
+        JOB_NAME = 'KEBS-QueryExecution'
+        DATABASE_RDS_EP = credentials('DATABASE_RDS_EP') 
+        DATABASE_RDS_USR = credentials('DATABASE_RDS_USR') 
+        DATABASE_RDS_PSD = credentials('DATABASE_RDS_PSD') 
+        AWS_ACCESS_KEY = credentials('AWS_ACCESS_KEY') 
+        AWS_SECRET_KEY = credentials('AWS_SECRET_KEY') 
+        DRIVER_NAME = "com.mysql.cj.jdbc.Driver"
+        
+    }
+
+    parameters {
+        string(name: 'DB_NAME', description: 'Database Name')
+    }
+
+    stages {
+            stage('Liquibase Validate') {
+                steps {
+                  withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_CREDS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
+                   {
+                        script {
+                            // Fetch the folder from S3 using AWS CLI
+                            sh "aws s3 cp s3://${S3_BUCKET} . --recursive"
+
+                            // for (int i = 0; i < database_names.size(); ++i) {
+                            // Run Liquibase validate command
+                            sh "docker run --rm -v /var/lib/jenkins/workspace/KEBS-QueryExecution/demochangelogs/:/liquibase/demochangelogs -v  /var/lib/jenkins/workspace/KEBS-QueryExecution/liquibasedep/:/liquibase/lib liquibase/liquibase --url=${DATABASE_RDS_EP}/${DB_NAME} --driver=$DRIVER_NAME --changeLogFile=${FOLDER_TO_FETCH}/${DB_NAME}/main.xml --username=$DATABASE_RDS_USR --password=$DATABASE_RDS_PSD status"
+                            // }
+                        }
+                    }
+                }
+            }
+            stage('SQLFluff Stage') {
+                steps {
+                    // Install SQLFluff if not already installed
+                    sh 'pip install sqlfluff'
+
+                    // Run SQLFluff to check SQL syntax
+                    script {
+                        // for (int i = 0; i < database_names.size(); ++i) {
+                        sh "sqlfluff --db ${DATABASE_RDS_EP}/${database_names[i]}/*.sql"
+                        // }
+                    }
+                }
+            }
+
+        }
+    
+}

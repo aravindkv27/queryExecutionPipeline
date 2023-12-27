@@ -1,0 +1,4 @@
+json
+pymysql
+dotenv
+boto3
