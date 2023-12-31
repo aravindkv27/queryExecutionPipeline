@@ -11,7 +11,7 @@ demo_json = [
     {
         "Associate-ID": "901224",
         "Email": "brohidh@kaartech.com",
-        "Query": "ALTER TABLE t_c4c_opportunity MODIFY COLUMN ccf_date DATE; \nALTER TABLE t_c4c_opportunity MODIFY COLUMN rfp_date DATE; \nSELECT * FROM congruent.t_notification WHERE recipient_id_1 = \"532c63bb-c654-4181-9a3e-867a941be474\";",
+        "Query": "INSERT INTO `m_gl_tax_account` ( `gl_code`, `gl_name`, `gl_description`, `gl_type`, `created_on`, `created_by`, `changed_on`, `changed_by`, `is_active`) VALUES ( NULL, 'TDS - Rent - Coy - 194I - P&M Or Equipment', 'TDS - Rent - Coy - 194I - P&M Or Equipment', 'less', '2023-12-28 11:06:50', NULL, '2023-12-28 11:06:50', NULL, 1); \nALTER TABLE t_c4c_opportunity MODIFY COLUMN rfp_date DATE; \nSELECT * FROM congruent.t_notification WHERE recipient_id_1 = \"532c63bb-c654-4181-9a3e-867a941be474\";",
         "DatabaseName": "stelliumdev",
         "Environment": "Development",
         "Team": "KTern",

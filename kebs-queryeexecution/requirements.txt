@@ -1,4 +1,3 @@
-json
 pymysql
 sqlfluff
 boto3
