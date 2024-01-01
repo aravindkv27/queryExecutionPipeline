@@ -1,51 +1,50 @@
+import pymysql
+from dotenv import load_dotenv
+import os
+import boto3
 import sqlfluff
+import json
 
-# def lint_sql_syntax(queries):
-#     error_count = 0
+load_dotenv()
 
-#     for idx, query in enumerate(queries, start=1):
-#         try:
-#             # Parse and lint individual SQL query using sqlfluff without fixing
-#             parsed = sqlfluff.parse(query, dialect='ansi', fix=False)
-
-#             # If no parsing error occurred, syntax is valid
-#             print(f"SQL query {idx}: Valid syntax.")
-        
-#         except sqlfluff.exceptions.SQLBaseError as e:
-#             print(f"SQL query {idx}: Syntax error - {e}")
-#             error_count += 1  # Increment error count for each syntax error
-    
-#     return error_count  # Return the total count of syntax errors found
-import sqlfluff
-
-# Sample queries
-sample_query_list = [
-    "SELECT * FROM table1 WHERE condition1;",
-    "SELECT column1, column2 FROM table2 WHERE condition2;",
-    "SELECT * FROM table3 WHERE condition3 AND",  # This query has a syntax error
-    "SELECT column1 FROM table4 WHERE condition4;"
+demo_json = [
+    {
+        "Associate-ID": "901224",
+        "Email": "brohidh@kaartech.com",
+        "Query": "INSERT INTO `m_gl_tax_account` ( `gl_code`, `gl_name`, `gl_description`, `gl_type`, `created_on`, `created_by`, `changed_on`, `changed_by`, `is_active`) VALUES ( NULL, 'TDS - Rent - Coy - 194I - P&M Or Equipment', 'TDS - Rent - Coy - 194I - P&M Or Equipment', 'less', '2023-12-28 11:06:50', NULL, '2023-12-28 11:06:50', NULL, 1); \nALTER TABLE t_c4c_opportunity MODIFY COLUMN rfp_date DATE; \nSELECT * FROM congruent.t_notification WHERE recipient_id_1 = \"532c63bb-c654-4181-9a3e-867a941be474\";",
+        "DatabaseName": "stelliumdev",
+        "Environment": "Development",
+        "Team": "KTern",
+        "QueryType": "Update",
+        "Reason": "test",
+        "TableName" : 'm_employee_master'
+    }
 ]
 
-# Join queries into a single string
-queries_string = "\n".join(sample_query_list)
 
-# Lint the queries
-result = sqlfluff.lint(queries_string)
+def check_user_authentication(user_detail_json):
 
-# Access exceptions if there are linting errors
-if result:
-    for violation in result:
-        print(violation)
-    total_errors = len(result)
-    print(total_errors)
-else:
-      print("No error")
+    email = user_detail_json[0]["Email"]
+    split_email = email.split('@')
+    username = split_email[0]
+    # print(username)
+    database_name = user_detail_json[0]["DatabaseName"]
+    QueryType = user_detail_json[0]["QueryType"]
+    TableName = user_detail_json[0]["TableName"]
+    query = user_detail_json[0]["Query"]
+    queries = query.split('\n')
 
-# Sample list of SQL queries
+    connection = pymysql.connect(
+        host =  os.getenv("DATABASE_RDS_EP"),
+        port = 3306,
+        user = os.getenv("DATABASE_RDS_USR"),
+        password = os.getenv("DATABASE_RDS_PSD"),
+        database = 'mysql'
+    )
 
+    cursor = connection.cursor()
 
-# # Run the function to lint SQL query syntax
-# total_errors = lint_sql_syntax(sample_query_list)
+    return cursor
 
-# # Exit with status code based on the number of syntax errors found
-# exit(total_errors)
+resp = check_user_authentication(demo_json)
+print(resp)

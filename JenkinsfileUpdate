@@ -1,0 +1,49 @@
+// def database_names = [
+//   'demo1',
+//   'demo_system1',
+//   'demo_system2'
+// ]
+def S3_BUCKET = 'kebs-queryexecution'
+def FOLDER_TO_FETCH = 'demochangelogs'
+
+pipeline {
+    agent any
+
+    environment {
+        JOB_NAME = 'KEBS-QueryExecution'
+        DATABASE_RDS_EP = 'jdbc:mysql://kebs-actual-dev.cuvhrjf8xvdp.us-east-1.rds.amazonaws.com:3306'
+        DATABASE_RDS_USR = 'admin'
+        DATABASE_RDS_PSD = 'Dj*8N7UwE0Mf'
+        DRIVER_NAME = "com.mysql.cj.jdbc.Driver"
+        
+    }
+
+    parameters {
+        string(name: 'DB_NAME', description: 'Database Name')
+    }
+
+    stages {
+            stage('Liquibase Update and Tag') {
+                steps {
+                  withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS_CREDS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
+                   {
+                        script {
+                            def buildDirectories = sh(script: 'ls -d /var/lib/jenkins/jobs/${JOB_NAME}/builds/*/ | grep -o "[0-9]*" | sort -n', returnStdout: true).trim().readLines()
+                            def highestNumber = buildDirectories.last()
+                            // Fetch the folder from S3 using AWS CLI
+                            sh "aws s3 cp s3://${S3_BUCKET} . --recursive"
+
+                            // for (int i = 0; i < database_names.size(); ++i) {
+                            // Run Liquibase validate command
+                            sh "docker run --rm -v /var/lib/jenkins/workspace/KEBS-QueryExecution/demochangelogs/:/liquibase/demochangelogs -v  /var/lib/jenkins/workspace/KEBS-QueryExecution/liquibasedep/:/liquibase/lib liquibase/liquibase --url=${DATABASE_RDS_EP}/${DB_NAME} --driver=$DRIVER_NAME --changeLogFile=${FOLDER_TO_FETCH}/${DB_NAME}/main.xml --username=$DATABASE_RDS_USR --password=$DATABASE_RDS_PSD update"
+
+                            sh "docker run --rm -v /var/lib/jenkins/workspace/KEBS-QueryExecution/demochangelogs/:/liquibase/demochangelogs -v  /var/lib/jenkins/workspace/KEBS-QueryExecution/liquibasedep/:/liquibase/lib liquibase/liquibase --url=${DATABASE_RDS_EP}/${DB_NAME} --driver=$DRIVER_NAME --changeLogFile=${FOLDER_TO_FETCH}/${DB_NAME}/main.xml --username=$DATABASE_RDS_USR --password=$DATABASE_RDS_PSD tag --tag=${DB_NAME}-${highestNumber}"
+
+                            // }
+                        }
+                    }
+                }
+            }
+        }
+   
+}

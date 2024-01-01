@@ -1,0 +1,3 @@
+pymysql
+sqlfluff
+boto3
